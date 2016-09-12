@@ -70,11 +70,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
         String sql;
 
-        sql = "/**\n" +
-                " * Created by dmoraes on 12/09/2016.\n" +
-                " *\n" +
-                " *\n" +
-                " CREATE TABLE Pet (\n" +
+        sql =   " CREATE TABLE Pet (\n" +
                 " Pet_id INTEGER NOT NULL,\n" +
                 " Pet_Name VARCHAR NOT NULL,\n" +
                 " Pet_Species VARCHAR NOT NULL,\n" +
