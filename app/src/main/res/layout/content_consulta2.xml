@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="br.com.ddmsoftware.agendadopet.Consulta2"
+    tools:showIn="@layout/activity_consulta2">
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    </ListView>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="9"
+        android:rowCount="2">
+        <TextView android:id="@+id/tvPetId"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="ID"
+            />
+        <TextView android:id="@+id/tvPetName"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Name"
+            />
+        <TextView android:id="@+id/tvPetspecies"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Species"
+            />
+        <TextView android:id="@+id/tvPetBreed"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Breed"
+            />
+        <TextView android:id="@+id/tvPetBirthDay"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="BirthDay"
+            />
+        <TextView android:id="@+id/tvPetSex"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Sex"
+            />
+        <TextView android:id="@+id/tvPetMoreInfo"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="MoreInfo"
+            />
+        <TextView android:id="@+id/tvPetOwner"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Owner"
+            />
+        <TextView android:id="@+id/tvPetPicture"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Picture"
+            />
+    </GridLayout>
+
+</RelativeLayout>

@@ -8,11 +8,11 @@ import android.os.Build;
 public class CreateDatabase extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "agendapet.db";
-    public static final Integer DB_VERSION = 1;
+    public static final Integer DB_VERSION = 2;
 
     // PET TABLE
     public static final String PET_TABLE = "Pet";
-    public static final String PET_ID = "Pet_id";
+    public static final String PET_ID = "_id";
     public static final String PET_NAME = "Pet_Name";
     public static final String PET_SPECIES = "Pet_Species";
     public static final String PET_BREED = "Pet_Breed";
@@ -24,7 +24,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
     // PEST_CONTROL TABLE
     public static final String PESTCONTROL_TABLE = "PestControl";
-    public static final String PESTCONTROL_ID = "PestControl_Id";
+    public static final String PESTCONTROL_ID = "_Id";
     public static final String PESTCONTROL_FK_PET_ID = "Pet_id";
     public static final String PESTCONTROL_MEDICINE_NAME = "PestControl_MedicineName";
     public static final String PESTCONTROL_DATE = "PestControl_Date";
@@ -32,7 +32,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
     // VET TABLE
     public static final String VET_TABLE = "VetTable";
-    public static final String VET_ID = "Vet_Id";
+    public static final String VET_ID = "_Id";
     public static final String VET_FK_PET_TABLE = "Pet_id";
     public static final String VET_NAME = "Vet_Name";
     public static final String VET_CLINIC = "Vet_Clinic";
@@ -42,7 +42,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
     // VACCINE_CONTROL TABLE
     public static final String VACCINE_CONTROL_TABLE = "VaccineControl";
-    public static final String VACCINE_ID = "Vaccine_Id";
+    public static final String VACCINE_ID = "_Id";
     public static final String VACCINE_FK_PET_ID = "Pet_id"; // INTEGER NOT NULL,
     public static final String VACCINE_LAB = "Vaccine_Lab"; // VARCHAR NOT NULL,
     public static final String VACCINE_STARTING_NO = "Vaccine_StartingNo"; //  VARCHAR NOT NULL,
@@ -52,7 +52,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
     // WORMING_CONTROL TABLE
     public static final String WORMINGCONTROL_TABLE = "WormingControl";
-    public static final String WORMINGCONTROL_ID  = "WormingControl_id";
+    public static final String WORMINGCONTROL_ID  = "_id";
     public static final String WORMINGCONTROL_FK_PET_ID = "Pet_id";
     public static final String WORMINGCONTROL_MEDICINENAME = "WormingControl_MedicineName";
     public static final String WORMINGCONTROL_DATE = "WormingControl_Date";
@@ -71,7 +71,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
         String sql;
 
         sql =   " CREATE TABLE Pet (\n" +
-                " Pet_id INTEGER NOT NULL,\n" +
+                " _id INTEGER NOT NULL primary key autoincrement,\n" +
                 " Pet_Name VARCHAR NOT NULL,\n" +
                 " Pet_Species VARCHAR NOT NULL,\n" +
                 " Pet_Breed VARCHAR NOT NULL,\n" +
@@ -79,35 +79,32 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 " Pet_BirthDate VARCHAR NOT NULL,\n" +
                 " Pet_MoreInfo VARCHAR NOT NULL,\n" +
                 " Pet_Owner VARCHAR NOT NULL,\n" +
-                " Pet_Picture BLOB,\n" +
-                " CONSTRAINT Pet_pk PRIMARY KEY (Pet_id)\n" +
+                " Pet_Picture BLOB\n" +
                 " );\n" +
                 "\n" +
                 "\n" +
                 " CREATE TABLE PestControl (\n" +
-                " PestControl_Id INTEGER NOT NULL,\n" +
+                " _id INTEGER NOT NULL primary key autoincrement,\n" +
                 " Pet_id INTEGER NOT NULL,\n" +
                 " PestControl_MedicineName VARCHAR NOT NULL,\n" +
                 " PestControl_Date DATE NOT NULL,\n" +
-                " PestControl_RenewalDate DATE,\n" +
-                " CONSTRAINT controle_pragas_id_pk PRIMARY KEY (PestControl_Id)\n" +
+                " PestControl_RenewalDate DATE\n" +
                 " );\n" +
                 "\n" +
                 "\n" +
                 " CREATE TABLE Vet (\n" +
-                " Vet_Id INTEGER NOT NULL,\n" +
+                " _id INTEGER NOT NULL primary key autoincrement,\n" +
                 " Pet_id INTEGER NOT NULL,\n" +
                 " Vet_Name VARCHAR NOT NULL,\n" +
                 " Vet_Clinic VARCHAR NOT NULL,\n" +
                 " Vet_Address VARCHAR NOT NULL,\n" +
                 " Vet_Phone1 VARCHAR,\n" +
-                " Vet_Phone2 VARCHAR,\n" +
-                " CONSTRAINT veterinario_id_pk PRIMARY KEY (Vet_Id)\n" +
+                " Vet_Phone2 VARCHAR\n" +
                 " );\n" +
                 "\n" +
                 "\n" +
                 " CREATE TABLE VaccineControl (\n" +
-                " Vaccine_Id INTEGER NOT NULL,\n" +
+                " _id INTEGER NOT NULL primary key autoincrement,\n" +
                 " Pet_id INTEGER NOT NULL,\n" +
                 " Vaccine_Lab VARCHAR NOT NULL,\n" +
                 " Vaccine_StartingNo VARCHAR NOT NULL,\n" +
