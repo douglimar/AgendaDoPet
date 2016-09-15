@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_scrollFlags="scroll|enterAlways" />
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycleview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+</LinearLayout>
+<!--
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_viewAdMob"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_margin="5dp"
+        android:background="@android:drawable/editbox_dropdown_light_frame">
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ListView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/listView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
+            </ListView>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="9"
+                android:rowCount="2">
+                <TextView android:id="@+id/tvPetId"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="ID"
+                    />
+                <TextView android:id="@+id/tvPetName"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Name"
+                    />
+                <TextView android:id="@+id/tvPetspecies"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Species"
+                    />
+                <TextView android:id="@+id/tvPetBreed"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Breed"
+                    />
+                <TextView android:id="@+id/tvPetBirthDay"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="BirthDay"
+                    />
+                <TextView android:id="@+id/tvPetSex"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Sex"
+                    />
+                <TextView android:id="@+id/tvPetMoreInfo"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="MoreInfo"
+                    />
+                <TextView android:id="@+id/tvPetOwner"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Owner"
+                    />
+                <TextView android:id="@+id/tvPetPicture"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Picture"
+                    />
+            </GridLayout>
+
+
+
+        </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+</RelativeLayout>
+-->

@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by dmoraes on 12/09/2016.
  */
@@ -70,6 +73,52 @@ public class DatabaseController {
 
         db.close();
         return resultSet;
+
+
+    }
+
+    public List<PetTableModel> loadPetDataInList() {
+
+        List<PetTableModel> modelList = new ArrayList<PetTableModel>();
+        Cursor resultSet;
+
+        // Define os campos que serão retornados na consulta
+        String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER, database.PET_PICTURE};
+
+        // Abre o Banco de Dados no formato Read-Only
+        db = database.getReadableDatabase();
+
+        // Faz a Consulta no Banco -- Modo Query
+        resultSet = db.query(database.PET_TABLE, fields, null,null, null, null, null);
+
+
+        // Faz a Consulta no Banco -- Modo rawQery -- ANSI-SQL
+        //resultSet = db.rawQuery("SELECT * FROM PET_TABLE",null);
+
+
+        if (resultSet!=null) {
+            resultSet.moveToFirst();
+
+            do {
+
+                PetTableModel model = new PetTableModel();
+                model.set_id(resultSet.getString(0));
+                model.setPet_Name(resultSet.getString(1));
+                model.setPet_Species(resultSet.getString(2));
+                model.setPet_Breed(resultSet.getString(3));
+                model.setPet_BirthDate(resultSet.getString(4));
+                model.setPet_Sex(resultSet.getString(5));
+                model.setPet_MoreInfo(resultSet.getString(6));
+                model.setPet_Owner(resultSet.getString(7));
+                model.setPet_Picture(resultSet.getString(8));
+
+                modelList.add(model);
+            }while (resultSet.moveToNext());
+
+        }
+
+        db.close();
+        return modelList;
 
 
     }
