@@ -22,7 +22,7 @@ public class DatabaseController {
 
     }
 
-    public String insertPetData(String pPetName, String pPetSpecies, String pPetBreed, String pPetSex, String pPetBirthDate, String pMoreInfo, String pPetOwner, String pPetPicture) {
+    public String insertPetData(String pPetName, String pPetSpecies, String pPetBreed, String pPetSex, String pPetBirthDate, String pMoreInfo, String pPetOwner, byte[] pPetPicture) {
 
         ContentValues contentValues;
 
@@ -82,6 +82,8 @@ public class DatabaseController {
         List<PetTableModel> modelList = new ArrayList<PetTableModel>();
         Cursor resultSet;
 
+        byte[] fotoArray;
+
         // Define os campos que serão retornados na consulta
         String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER, database.PET_PICTURE};
 
@@ -110,7 +112,7 @@ public class DatabaseController {
                 model.setPet_Sex(resultSet.getString(5));
                 model.setPet_MoreInfo(resultSet.getString(6));
                 model.setPet_Owner(resultSet.getString(7));
-                model.setPet_Picture(resultSet.getString(8));
+                model.setPet_Picture(resultSet.getBlob(8));
 
                 modelList.add(model);
             }while (resultSet.moveToNext());

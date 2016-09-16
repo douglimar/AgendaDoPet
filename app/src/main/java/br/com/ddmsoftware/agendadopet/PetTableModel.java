@@ -1,5 +1,8 @@
 package br.com.ddmsoftware.agendadopet;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+
 /**
  * Created by dmoraes on 14/09/2016.
  */
@@ -13,7 +16,17 @@ public class PetTableModel {
     private String Pet_BirthDate;
     private String Pet_MoreInfo;
     private String Pet_Owner;
-    private String Pet_Picture;
+
+    private byte[] Pet_Picture;
+
+    public byte[] getPet_Picture() {
+        return Pet_Picture;
+    }
+
+    public void setPet_Picture(byte[] pet_Picture) {
+        Pet_Picture = pet_Picture;
+    }
+
 
     public String get_id() {
         return _id;
@@ -79,12 +92,6 @@ public class PetTableModel {
         Pet_Owner = pet_Owner;
     }
 
-    public String getPet_Picture() {
-        return Pet_Picture;
-    }
 
-    public void setPet_Picture(String pet_Picture) {
-        Pet_Picture = pet_Picture;
-    }
 
 }

@@ -1,6 +1,8 @@
 package br.com.ddmsoftware.agendadopet;
 
 import android.content.ContentValues;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +44,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
 
+        byte[] fotoArray = dbList.get(position).getPet_Picture();
+
+        Bitmap raw = BitmapFactory.decodeByteArray(fotoArray,0,fotoArray.length);
+
         holder.id.setText(dbList.get(position).get_id());
         holder.name.setText(dbList.get(position).getPet_Name());
         holder.sex.setText(dbList.get(position).getPet_Sex());
@@ -49,7 +56,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.species.setText(dbList.get(position).getPet_Species());
         holder.moreInfo.setText(dbList.get(position).getPet_MoreInfo());
         holder.owner.setText(dbList.get(position).getPet_Owner());
-        holder.picture.setText(dbList.get(position).getPet_Picture());
+        holder.picture.setImageBitmap(raw);
+        //holder.picture.setText(dbList.get(position).getPet_Picture());
 
     }
 
@@ -61,7 +69,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public TextView id, name, species, breed, sex, moreInfo, vet, birthday, owner, picture;
+        public TextView id, name, species, breed, sex, moreInfo, vet, birthday, owner;
+        public ImageView picture;
 
         public ViewHolder(View itemLayoutView){
             super(itemLayoutView);
@@ -75,7 +84,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             //vet = (TextView)itemLayoutView.findViewById(R.id.tvpet)
             birthday = (TextView)itemLayoutView.findViewById(R.id.tvPetBirthDay);
             owner = (TextView)itemLayoutView.findViewById(R.id.tvPetOwner);
-            picture = (TextView)itemLayoutView.findViewById(R.id.tvPetPicture);
+            picture = (ImageView) itemLayoutView.findViewById(R.id.imageView);
         }
 
         @Override
