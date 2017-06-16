@@ -20,7 +20,7 @@ public class CreateDatabase extends SQLiteOpenHelper {
     public static final String PET_BIRTHDATE = "Pet_BirthDate";
     public static final String PET_MOREINFO = "Pet_MoreInfo";
     public static final String PET_OWNER = "Pet_Owner";
-    public static final String PET_PICTURE = "Pet_Picture";
+    //public static final String PET_PICTURE = "Pet_Picture";
 
     // PEST_CONTROL TABLE
     public static final String PESTCONTROL_TABLE = "PestControl";
@@ -78,8 +78,8 @@ public class CreateDatabase extends SQLiteOpenHelper {
                 " Pet_Sex VARCHAR NOT NULL,\n" +
                 " Pet_BirthDate VARCHAR NOT NULL,\n" +
                 " Pet_MoreInfo VARCHAR NOT NULL,\n" +
-                " Pet_Owner VARCHAR NOT NULL,\n" +
-                " Pet_Picture BLOB\n" +
+                " Pet_Owner VARCHAR NOT NULL \n" +
+               // " Pet_Picture BLOB\n" +
                 " );\n" +
                 "\n" +
                 "\n" +

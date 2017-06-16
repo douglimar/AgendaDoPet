@@ -25,10 +25,15 @@ public class Consulta2 extends AppCompatActivity {
 
         final Cursor resultSet = CRUD.loadPetData();
 
-        String[] fieldNames = new String[] {CreateDatabase.PET_ID, CreateDatabase.PET_NAME, CreateDatabase.PET_SPECIES, CreateDatabase.PET_BREED, CreateDatabase.PET_BIRTHDATE,
+/*        String[] fieldNames = new String[] {CreateDatabase.PET_ID, CreateDatabase.PET_NAME, CreateDatabase.PET_SPECIES, CreateDatabase.PET_BREED, CreateDatabase.PET_BIRTHDATE,
                 CreateDatabase.PET_SEX, CreateDatabase.PET_MOREINFO, CreateDatabase.PET_OWNER, CreateDatabase.PET_PICTURE};
+*/
+        String[] fieldNames = new String[] {CreateDatabase.PET_ID, CreateDatabase.PET_NAME, CreateDatabase.PET_SPECIES, CreateDatabase.PET_BREED, CreateDatabase.PET_BIRTHDATE,
+                CreateDatabase.PET_SEX, CreateDatabase.PET_MOREINFO, CreateDatabase.PET_OWNER};
 
-        int[] idViews  = new int[]{R.id.tvPetId, R.id.tvPetName, R.id.tvPetspecies, R.id.tvPetBreed, R.id.tvPetBirthDay, R.id.tvPetSex, R.id.tvPetMoreInfo, R.id.tvPetOwner, R.id.tvPetPicture};
+//        int[] idViews  = new int[]{R.id.tvPetId, R.id.tvPetName, R.id.tvPetspecies, R.id.tvPetBreed, R.id.tvPetBirthDay, R.id.tvPetSex, R.id.tvPetMoreInfo, R.id.tvPetOwner, R.id.tvPetPicture};
+
+        int[] idViews  = new int[]{R.id.tvPetId, R.id.tvPetName, R.id.tvPetspecies, R.id.tvPetBreed, R.id.tvPetBirthDay, R.id.tvPetSex, R.id.tvPetMoreInfo, R.id.tvPetOwner};
 
 
         // Campo Chave para Carregar os dados na tela

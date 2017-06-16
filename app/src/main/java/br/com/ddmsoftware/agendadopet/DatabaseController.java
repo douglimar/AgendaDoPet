@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,8 @@ public class DatabaseController {
 
     }
 
-    public String insertPetData(String pPetName, String pPetSpecies, String pPetBreed, String pPetSex, String pPetBirthDate, String pMoreInfo, String pPetOwner, byte[] pPetPicture) {
+//    public String insertPetData(String pPetName, String pPetSpecies, String pPetBreed, String pPetSex, String pPetBirthDate, String pMoreInfo, String pPetOwner, byte[] pPetPicture) {
+    public String insertPetData(String pPetName, String pPetSpecies, String pPetBreed, String pPetSex, String pPetBirthDate, String pMoreInfo, String pPetOwner) {
 
         ContentValues contentValues;
 
@@ -39,7 +41,7 @@ public class DatabaseController {
         contentValues.put(CreateDatabase.PET_BIRTHDATE, pPetBirthDate);
         contentValues.put(CreateDatabase.PET_MOREINFO, pMoreInfo);
         contentValues.put(CreateDatabase.PET_OWNER, pPetOwner);
-        contentValues.put(CreateDatabase.PET_PICTURE, pPetPicture);
+        //contentValues.put(CreateDatabase.PET_PICTURE, pPetPicture);
 
         resultado = db.insert(CreateDatabase.PET_TABLE, null, contentValues);
 
@@ -55,7 +57,8 @@ public class DatabaseController {
         Cursor resultSet;
 
         // Define os campos que serão retornados na consulta
-        String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER, database.PET_PICTURE};
+//        String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER, database.PET_PICTURE};
+        String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER};
 
         // Abre o Banco de Dados no formato Read-Only
         db = database.getReadableDatabase();
@@ -85,7 +88,8 @@ public class DatabaseController {
         byte[] fotoArray;
 
         // Define os campos que serão retornados na consulta
-        String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER, database.PET_PICTURE};
+        //String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER, database.PET_PICTURE};
+        String[] fields = {database.PET_ID, database.PET_NAME, database.PET_SPECIES, database.PET_BREED, database.PET_BIRTHDATE, database.PET_SEX, database.PET_MOREINFO, database.PET_OWNER};
 
         // Abre o Banco de Dados no formato Read-Only
         db = database.getReadableDatabase();
@@ -96,12 +100,16 @@ public class DatabaseController {
 
         // Faz a Consulta no Banco -- Modo rawQery -- ANSI-SQL
         //resultSet = db.rawQuery("SELECT * FROM PET_TABLE",null);
+        int iCount = resultSet.getCount();
+        Log.e("TESTE DE LOG:", String.valueOf(iCount));
 
 
         if (resultSet!=null) {
             resultSet.moveToFirst();
 
             do {
+
+                Log.e("Teste...:::::", resultSet.getString(0));
 
                 PetTableModel model = new PetTableModel();
                 model.set_id(resultSet.getString(0));
@@ -112,7 +120,7 @@ public class DatabaseController {
                 model.setPet_Sex(resultSet.getString(5));
                 model.setPet_MoreInfo(resultSet.getString(6));
                 model.setPet_Owner(resultSet.getString(7));
-                model.setPet_Picture(resultSet.getBlob(8));
+                //model.setPet_Picture(resultSet.getBlob(8));
 
                 modelList.add(model);
             }while (resultSet.moveToNext());

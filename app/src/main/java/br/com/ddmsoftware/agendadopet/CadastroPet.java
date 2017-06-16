@@ -29,8 +29,10 @@ public class CadastroPet extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button btnTakeAPicture = (Button) findViewById(R.id.btnGetPicture);
 
+        // COMENTANDO AGORA -- 25.05.2017
+        //Button btnTakeAPicture = (Button) findViewById(R.id.btnGetPicture);
+        /*
         btnTakeAPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,8 +47,8 @@ public class CadastroPet extends AppCompatActivity {
             }
 
 
-
         });
+        FIM DO MEU COMENTARIO TESTE */
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -54,9 +56,6 @@ public class CadastroPet extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-
-
-
 
                 EditText edtName, edtSpecies, edtBreed, edtBirthday, edtSex, edtMoreInfo, edtOwner;
                 ImageView imgPicture;
@@ -68,7 +67,9 @@ public class CadastroPet extends AppCompatActivity {
                 edtSex = (EditText)findViewById(R.id.edtSex);
                 edtMoreInfo = (EditText)findViewById(R.id.edtMoreInfo);
                 edtOwner = (EditText)findViewById(R.id.edtOwner);
-                imgPicture = (ImageView) findViewById(R.id.imageView);
+                //Comentando Agora -- 25.05
+
+                /*imgPicture = (ImageView) findViewById(R.id.imageView);
 
                 // ************** Extract Bytes of ImageView *****************************
                 Bitmap mBitmap = ((BitmapDrawable)imgPicture.getDrawable()).getBitmap();
@@ -76,6 +77,8 @@ public class CadastroPet extends AppCompatActivity {
                 mBitmap.compress(Bitmap.CompressFormat.PNG, 100, saida);
                 byte[] myConvertedImage = saida.toByteArray();
                 // ***********************************************************************
+                Fim do meu comentario
+                        */
 
                 PetTableModel petModel = new PetTableModel();
 
@@ -86,12 +89,16 @@ public class CadastroPet extends AppCompatActivity {
                 petModel.setPet_Sex(edtSex.getText().toString());
                 petModel.setPet_MoreInfo(edtMoreInfo.getText().toString());
                 petModel.setPet_Owner(edtOwner.getText().toString());
-                petModel.setPet_Picture(myConvertedImage);
+                //Comentando agora -- 25.5
+                //petModel.setPet_Picture(myConvertedImage);
 
                 DatabaseController CRUD = new DatabaseController(CadastroPet.this);
 
-                String resultado  = CRUD.insertPetData(petModel.getPet_Name(), petModel.getPet_Species(), petModel.getPet_Breed(),petModel.getPet_Sex(),
+/*                String resultado  = CRUD.insertPetData(petModel.getPet_Name(), petModel.getPet_Species(), petModel.getPet_Breed(),petModel.getPet_Sex(),
                         petModel.getPet_BirthDate(),petModel.getPet_MoreInfo(), petModel.getPet_Owner(),petModel.getPet_Picture());
+*/
+                String resultado  = CRUD.insertPetData(petModel.getPet_Name(), petModel.getPet_Species(), petModel.getPet_Breed(),petModel.getPet_Sex(),
+                        petModel.getPet_BirthDate(),petModel.getPet_MoreInfo(), petModel.getPet_Owner());
 
                 Toast.makeText(CadastroPet.this, resultado, Toast.LENGTH_SHORT).show();
 
@@ -133,9 +140,6 @@ public class CadastroPet extends AppCompatActivity {
 
         }; */
     }
-
-
-
 
     public  Bitmap decodeBitmap(Uri selectedImage) throws FileNotFoundException {
         BitmapFactory.Options o = new BitmapFactory.Options();
